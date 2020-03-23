@@ -6,10 +6,13 @@ using Core.Contracts;
 
 namespace DemoLibrary.Utilities
 {
-    internal class DataAccess : IDataAccess
+    /// <summary>
+    /// This  class does not contain any relevant logic besides counting a variable and writing its progress to the console
+    /// </summary>
+    public class DataAccess : IDataAccess
     {
-        private const int SLEEP_MS = 250;
-        private const int COUNTS = 4 * 5;
+        private const int SLEEP_MS = 100;
+        private const int COUNTS = 10*5;
 
         public void SaveData(string somefilenameDat)
         {
@@ -18,10 +21,11 @@ namespace DemoLibrary.Utilities
 
         public void LoadData()
         {
-            Console.WriteLine("Loading");
+            Console.WriteLine("Loading started!");
             for (int i = 0; i < COUNTS; i++)
             {
                 Thread.Sleep(SLEEP_MS);
+                Console.WriteLine($"Loading: {(double) i / (double) COUNTS * 100}%");
             }
         }
     }

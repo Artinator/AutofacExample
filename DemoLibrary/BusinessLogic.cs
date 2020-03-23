@@ -4,18 +4,27 @@ using DemoLibrary.Utilities;
 
 namespace DemoLibrary
 {
+    /// <summary>
+    /// the businesslogic holds the "backend" of processing dummy data
+    /// </summary>
     public class BusinessLogic : IBusinessLogic
     {
+        private ILogger _logger;
+        private IDataAccess _dataAccess;
+
+        public BusinessLogic(ILogger logger, IDataAccess dataAccess)
+        {
+            _logger = logger;
+            _dataAccess = dataAccess;
+        }
+
         public void ProcessData()
         {
-            ConsoleLogger log = new ConsoleLogger();
-            DataAccess dataAccess = new DataAccess();
+            _logger.Log("[BusinessLogic]: Starting");
+            _dataAccess.LoadData();
 
-            log.Log("[BusinessLogic]: Starting");
-            dataAccess.LoadData();
-
-            dataAccess.SaveData("SomeFileName.dat");
-            log.Log("[BusinessLogic]: Done");
+            _dataAccess.SaveData("SomeFileName.dat");
+            _logger.Log("[BusinessLogic]: Done");
         }
 
     }

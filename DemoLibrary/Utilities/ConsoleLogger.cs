@@ -5,7 +5,10 @@ using Core.Contracts;
 
 namespace DemoLibrary.Utilities
 {
-    internal class ConsoleLogger : ILogger
+    /// <summary>
+    /// This is a very simple implementation of a pure console-writeline 'logger'
+    /// </summary>
+    public class ConsoleLogger : ILogger
     {
         public void Log(string msg)
         {
