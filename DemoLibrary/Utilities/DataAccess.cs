@@ -22,7 +22,7 @@ namespace DemoLibrary.Utilities
         public void LoadData()
         {
             Console.WriteLine("Loading started!");
-            for (int i = 0; i < COUNTS; i++)
+            for (int i = 0; i <= COUNTS; i++)
             {
                 Thread.Sleep(SLEEP_MS);
                 Console.WriteLine($"Loading: {(double) i / (double) COUNTS * 100}%");
